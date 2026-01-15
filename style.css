@@ -85,7 +85,7 @@ body {
   text-transform: uppercase;
 }
 
-.btn-follow {
+.btn-follow, .btn-edit{
   background-color: #753185;
   color: white;
   border: none;
@@ -97,7 +97,7 @@ body {
   transition: background 0.2s;
 }
 
-.btn-follow:hover {
+.btn-follow:hover, .btn-edit:hover {
   background-color: #5a2566;
 }
 
@@ -133,4 +133,11 @@ body {
 
 .theme-btn:hover {
   transform: scale(1.1); /* Um leve aumento ao passar o mouse */
+}
+
+#biografia[contenteditable="true"] {
+    outline: 2px dashed #753185;
+    padding: 2px 5px;
+    border-radius: 4px;
+    background: rgba(117, 49, 133, 0.1);
 }

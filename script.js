@@ -126,9 +126,16 @@ const tema = localStorage.getItem('tema');
 const btnFollow = document.getElementById('btn-follow');
 const followerElement = document.getElementById('follower-count');
 const themeToggle = document.getElementById('theme-toggle');
+const btnEdit = document.getElementById('btn-edit');
+const meuElementoBio = document.getElementById('biografia');
 
 let isFollowing = false;
 let count = 999; // Valor inicial numérico
+
+const bioSalva = localStorage.getItem('userBio');
+if (bioSalva) {
+  meuElementoBio.textContent = bioSalva;
+}
 
 if (tema === 'escuro') {
   document.body.classList.add('dark-mode');
@@ -162,5 +169,26 @@ themeToggle.addEventListener('click', (e) => {
   } else {
     localStorage.removeItem('tema');
     themeToggle.textContent = '🌙';
+  }
+});
+
+btnEdit.addEventListener('click', () => {
+  // Verifica se já está editando
+  const isEditing = meuElementoBio.contentEditable === 'true';
+
+  if (!isEditing) {
+    // Entra no modo de edição
+    meuElementoBio.contentEditable = true;
+    meuElementoBio.focus();
+    btnEdit.textContent = 'Salvar bio';
+    btnEdit.style.backgroundColor = '#28a745'; // Muda para verde ao editar
+  } else {
+    // Sai do modo de edição e salva
+    meuElementoBio.contentEditable = false;
+    btnEdit.textContent = 'Editar bio';
+    btnEdit.style.backgroundColor = ''; // Volta para a cor original do CSS
+
+    // Salva no LocalStorage para não perder ao dar F5
+    localStorage.setItem('userBio', meuElementoBio.textContent);
   }
 });
