@@ -1,0 +1,136 @@
+:root {
+  /* Cores para o Modo Claro (Light) */
+  --bg-page: linear-gradient(60deg, rgba(3, 2, 2, 1) 0%, rgba(117, 49, 133, 1) 71%);
+  --bg-card: #EEEEEE;
+  --text-main: #333333;
+  --text-sub: #777777;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.dark-mode {
+  --bg-page: #121212;
+  --bg-card: #1e1e1e;
+  --text-main: #fff;
+  --text-sub: #bbb
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  height: 100vh;
+  background: var(--bg-page) no-repeat;
+  color: var(--text-main);
+/* Centralização mágica */
+  display: flex;
+  justify-content: center; /* Centraliza na horizontal */
+  align-items: center;     /* Centraliza na vertical */
+  transition: background 0.3s ease;
+}
+
+.card {
+  background: var(--bg-card);
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 22rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.card img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.status {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.status-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.status-item strong {
+  font-size: 1.2rem;
+  color: var(--text-main);
+}
+
+.status-item span {
+  font-size: 0.8rem;
+  color: var(--text-sub);
+  text-transform: uppercase;
+}
+
+.btn-follow {
+  background-color: #753185;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 20px;
+  font-weight: bold;
+  margin: 20px 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-follow:hover {
+  background-color: #5a2566;
+}
+
+.following {
+  background-color: #ccc !important; /* Cinza para indicar estado desativado */
+  color: #333 !important;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1000;
+}
+
+.theme-btn {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--text-sub);
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.theme-btn:hover {
+  transform: scale(1.1); /* Um leve aumento ao passar o mouse */
+}
